@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1j1i88eqys50"]
+
+[ext_resource type="Script" path="res://Script/Levels.gd" id="1_jeknh"]
+[ext_resource type="PackedScene" uid="uid://bcklhc6fhaq5i" path="res://BuildingBlocks/Player.tscn" id="2_d4ijc"]
+[ext_resource type="PackedScene" uid="uid://dd2nubmcqdqc" path="res://main_menu.tscn" id="2_psoj0"]
+[ext_resource type="PackedScene" uid="uid://6u3x1g8ooyyb" path="res://BuildingBlocks/PlayerMirror.tscn" id="3_48y5v"]
+[ext_resource type="PackedScene" uid="uid://div00t76ta2bj" path="res://BuildingBlocks/Exit.tscn" id="4_d0tk7"]
+
+[node name="Level5" type="Node2D"]
+script = ExtResource("1_jeknh")
+target_level = ExtResource("2_psoj0")
+
+[node name="Players" parent="." instance=ExtResource("2_d4ijc")]
+position = Vector2(261, 270)
+
+[node name="PlayerMirror" parent="." instance=ExtResource("3_48y5v")]
+position = Vector2(343, 269)
+
+[node name="Exit" parent="." instance=ExtResource("4_d0tk7")]
+position = Vector2(340, 400)
+rotation = -4.69204
+
+[node name="Exit2" parent="." instance=ExtResource("4_d0tk7")]
+position = Vector2(258, 32)
+rotation = -1.57655
+
+[connection signal="append" from="Exit" to="." method="_on_exit_append"]
+[connection signal="erase" from="Exit" to="." method="_on_exit_erase"]
+[connection signal="append" from="Exit2" to="." method="_on_exit_append"]
+[connection signal="erase" from="Exit2" to="." method="_on_exit_erase"]

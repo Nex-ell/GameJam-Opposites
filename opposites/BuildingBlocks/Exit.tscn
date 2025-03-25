@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://div00t76ta2bj"]
+
+[ext_resource type="Script" path="res://Script/exit.gd" id="1_hptay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggtfw"]
+size = Vector2(13, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pft3"]
+size = Vector2(7, 36)
+
+[node name="Exit" type="Area2D"]
+script = ExtResource("1_hptay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ggtfw")
+debug_color = Color(0.954546, 0, 0.547867, 0.42)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -18.0
+offset_right = 7.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_1pft3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
