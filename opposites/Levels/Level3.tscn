@@ -1,28 +1,90 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6ndmwf2ag72y"]
+[gd_scene load_steps=9 format=3 uid="uid://b6ndmwf2ag72y"]
 
-[ext_resource type="Script" path="res://Script/Levels.gd" id="1_b7xc3"]
+[ext_resource type="Script" uid="uid://ne4cdkxlit12" path="res://Script/Levels.gd" id="1_b7xc3"]
 [ext_resource type="PackedScene" uid="uid://bcklhc6fhaq5i" path="res://BuildingBlocks/Player.tscn" id="2_qstam"]
 [ext_resource type="PackedScene" uid="uid://dowgjsg4bjxqv" path="res://Levels/Level4.tscn" id="2_whejl"]
 [ext_resource type="PackedScene" uid="uid://6u3x1g8ooyyb" path="res://BuildingBlocks/PlayerMirror.tscn" id="3_otlnu"]
 [ext_resource type="PackedScene" uid="uid://div00t76ta2bj" path="res://BuildingBlocks/Exit.tscn" id="4_f875q"]
+[ext_resource type="PackedScene" uid="uid://dl36yuxx8275c" path="res://BuildingBlocks/BlockHazard.tscn" id="6_vybwq"]
+[ext_resource type="PackedScene" uid="uid://cu757svgrp64q" path="res://BuildingBlocks/DiamondHazard.tscn" id="7_4cgce"]
+[ext_resource type="PackedScene" uid="uid://4my0a8a66wr0" path="res://BuildingBlocks/rectangle_hazard.tscn" id="8_twi1l"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_b7xc3")
 target_level = ExtResource("2_whejl")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 1245.0
+offset_bottom = 672.0
+color = Color(0.365932, 0.226208, 0.107066, 0.646)
+
 [node name="Players" parent="." instance=ExtResource("2_qstam")]
-position = Vector2(261, 270)
+position = Vector2(93, 356)
 
 [node name="PlayerMirror" parent="." instance=ExtResource("3_otlnu")]
-position = Vector2(343, 269)
+position = Vector2(93, 283)
 
 [node name="Exit" parent="." instance=ExtResource("4_f875q")]
-position = Vector2(340, 400)
-rotation = -4.69204
+position = Vector2(1149, 467)
+rotation = -6.28319
 
 [node name="Exit2" parent="." instance=ExtResource("4_f875q")]
-position = Vector2(258, 32)
-rotation = -1.57655
+position = Vector2(1149, 174)
+rotation = -6.28319
+
+[node name="BlockHazard2" parent="." instance=ExtResource("6_vybwq")]
+position = Vector2(434, 65)
+scale = Vector2(3, 3)
+
+[node name="BlockHazard" parent="." instance=ExtResource("6_vybwq")]
+position = Vector2(437, 272)
+scale = Vector2(3, 3)
+
+[node name="BlockHazard3" parent="." instance=ExtResource("6_vybwq")]
+position = Vector2(216, 389)
+
+[node name="BlockHazard4" parent="." instance=ExtResource("6_vybwq")]
+position = Vector2(119, 204)
+
+[node name="BlockHazard5" parent="." instance=ExtResource("6_vybwq")]
+position = Vector2(136, 649)
+scale = Vector2(8, 8)
+
+[node name="BlockHazard6" parent="." instance=ExtResource("6_vybwq")]
+position = Vector2(683, 417)
+scale = Vector2(4, 4)
+
+[node name="BlockHazard7" parent="." instance=ExtResource("6_vybwq")]
+position = Vector2(761, 634)
+scale = Vector2(2, 2)
+
+[node name="TriangleHazard" parent="." instance=ExtResource("7_4cgce")]
+position = Vector2(965, 493)
+scale = Vector2(4, 4)
+
+[node name="TriangleHazard2" parent="." instance=ExtResource("7_4cgce")]
+position = Vector2(965, 145)
+scale = Vector2(4, 4)
+
+[node name="FloorBoundary" parent="." instance=ExtResource("8_twi1l")]
+position = Vector2(834, 708)
+scale = Vector2(7, 7)
+
+[node name="RWallBoundary" parent="." instance=ExtResource("8_twi1l")]
+position = Vector2(1183, 295)
+rotation = 1.5708
+scale = Vector2(5, 5)
+
+[node name="CeilingBoundary" parent="." instance=ExtResource("8_twi1l")]
+position = Vector2(548, -39)
+scale = Vector2(8, 8)
+
+[node name="LWallBoundary" parent="." instance=ExtResource("8_twi1l")]
+position = Vector2(-20, 241)
+rotation = 1.5708
+scale = Vector2(3, 3)
 
 [connection signal="append" from="Exit" to="." method="_on_exit_append"]
 [connection signal="erase" from="Exit" to="." method="_on_exit_erase"]

@@ -1,28 +1,177 @@
-[gd_scene load_steps=6 format=3 uid="uid://dowgjsg4bjxqv"]
+[gd_scene load_steps=9 format=3 uid="uid://dowgjsg4bjxqv"]
 
-[ext_resource type="Script" path="res://Script/Levels.gd" id="1_50x2s"]
+[ext_resource type="Script" uid="uid://ne4cdkxlit12" path="res://Script/Levels.gd" id="1_50x2s"]
 [ext_resource type="PackedScene" uid="uid://bcklhc6fhaq5i" path="res://BuildingBlocks/Player.tscn" id="2_pnh6u"]
 [ext_resource type="PackedScene" uid="uid://b1j1i88eqys50" path="res://Levels/Level5.tscn" id="2_w6mr5"]
 [ext_resource type="PackedScene" uid="uid://6u3x1g8ooyyb" path="res://BuildingBlocks/PlayerMirror.tscn" id="3_qtqly"]
 [ext_resource type="PackedScene" uid="uid://div00t76ta2bj" path="res://BuildingBlocks/Exit.tscn" id="4_qbqtb"]
+[ext_resource type="PackedScene" uid="uid://4my0a8a66wr0" path="res://BuildingBlocks/rectangle_hazard.tscn" id="6_5brs8"]
+[ext_resource type="PackedScene" uid="uid://q76qq43m6nk5" path="res://BuildingBlocks/triangleHazard.tscn" id="7_qgpl5"]
+[ext_resource type="PackedScene" uid="uid://dl36yuxx8275c" path="res://BuildingBlocks/BlockHazard.tscn" id="8_vgbee"]
 
 [node name="Level4" type="Node2D"]
+position = Vector2(0, 10)
 script = ExtResource("1_50x2s")
 target_level = ExtResource("2_w6mr5")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 1245.0
+offset_bottom = 672.0
+color = Color(0.310916, 0.212483, 0.392444, 0.646)
+
 [node name="Players" parent="." instance=ExtResource("2_pnh6u")]
-position = Vector2(261, 270)
+position = Vector2(94, 347)
 
 [node name="PlayerMirror" parent="." instance=ExtResource("3_qtqly")]
-position = Vector2(343, 269)
+position = Vector2(95, 289)
 
 [node name="Exit" parent="." instance=ExtResource("4_qbqtb")]
-position = Vector2(340, 400)
-rotation = -4.69204
+position = Vector2(1150, 347)
+rotation = -6.28319
 
 [node name="Exit2" parent="." instance=ExtResource("4_qbqtb")]
-position = Vector2(258, 32)
-rotation = -1.57655
+position = Vector2(1150, 288)
+rotation = -6.28319
+
+[node name="RectangleHazard2" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(699, 485)
+scale = Vector2(4, 4)
+
+[node name="RectangleHazard3" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(700, 154)
+scale = Vector2(4, 4)
+
+[node name="TriangleHazard" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(470, 423)
+scale = Vector2(4.5, 4.5)
+
+[node name="Area2D" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(589, 362)
+rotation = 3.14159
+scale = Vector2(3, 3)
+
+[node name="Area2D2" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(700, 433)
+scale = Vector2(3, 3)
+
+[node name="Area2D3" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(810, 362)
+rotation = 3.14159
+scale = Vector2(3, 3)
+
+[node name="Area2D4" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(926, 423)
+scale = Vector2(4.5, 4.5)
+
+[node name="RectangleHazard" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(590, 328)
+scale = Vector2(0.5, 0.5)
+
+[node name="RectangleHazard4" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(811, 328)
+scale = Vector2(0.5, 0.5)
+
+[node name="RectangleHazard5" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(700, 466)
+scale = Vector2(0.4, 0.4)
+
+[node name="BlockHazard" parent="." instance=ExtResource("8_vgbee")]
+position = Vector2(467, 6)
+
+[node name="BlockHazard2" parent="." instance=ExtResource("8_vgbee")]
+position = Vector2(468, 114)
+
+[node name="TriangleHazard2" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(533, 125)
+
+[node name="TriangleHazard3" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(561, 114)
+
+[node name="TriangleHazard4" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(591, 90)
+
+[node name="TriangleHazard5" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(621, 114)
+
+[node name="TriangleHazard6" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(650, 125)
+
+[node name="TriangleHazard7" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(645, 6)
+rotation = 3.14159
+
+[node name="TriangleHazard8" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(673, 14)
+rotation = 3.14159
+
+[node name="TriangleHazard9" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(702, 32)
+rotation = 3.14159
+
+[node name="TriangleHazard10" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(732, 14)
+rotation = 3.14159
+
+[node name="TriangleHazard11" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(760, 6)
+rotation = 3.14159
+
+[node name="TriangleHazard12" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(753, 125)
+
+[node name="TriangleHazard13" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(781, 114)
+
+[node name="TriangleHazard14" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(811, 90)
+
+[node name="TriangleHazard15" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(841, 114)
+
+[node name="TriangleHazard16" parent="." instance=ExtResource("7_qgpl5")]
+position = Vector2(870, 125)
+
+[node name="BlockHazard3" parent="." instance=ExtResource("8_vgbee")]
+position = Vector2(930, 6)
+
+[node name="BlockHazard4" parent="." instance=ExtResource("8_vgbee")]
+position = Vector2(931, 114)
+
+[node name="FloorBoundary" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(604, -70)
+scale = Vector2(8, 8)
+
+[node name="RWallBoundary" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(1180, 353)
+rotation = 1.5708
+scale = Vector2(5, 5)
+
+[node name="CeilingBoundary" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(545, 676)
+scale = Vector2(8, 8)
+
+[node name="LWallBoundary" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(-30, 259)
+rotation = 1.5708
+scale = Vector2(5, 5)
+
+[node name="RectangleHazard6" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(702, 328)
+scale = Vector2(0.5, 0.5)
+
+[node name="RectangleHazard7" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(646, 321)
+scale = Vector2(0.5, 0.5)
+
+[node name="RectangleHazard8" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(758, 321)
+scale = Vector2(0.5, 0.5)
+
+[node name="RectangleHazard9" parent="." instance=ExtResource("6_5brs8")]
+position = Vector2(702, 314)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="append" from="Exit" to="." method="_on_exit_append"]
 [connection signal="erase" from="Exit" to="." method="_on_exit_erase"]
