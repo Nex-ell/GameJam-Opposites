@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1j1i88eqys50"]
+[gd_scene load_steps=17 format=3 uid="uid://b1j1i88eqys50"]
 
 [ext_resource type="Script" path="res://Script/Levels.gd" id="1_jeknh"]
 [ext_resource type="PackedScene" uid="uid://bcklhc6fhaq5i" path="res://BuildingBlocks/Player.tscn" id="2_d4ijc"]
 [ext_resource type="PackedScene" uid="uid://dd2nubmcqdqc" path="res://main_menu.tscn" id="2_psoj0"]
 [ext_resource type="PackedScene" uid="uid://6u3x1g8ooyyb" path="res://BuildingBlocks/PlayerMirror.tscn" id="3_48y5v"]
 [ext_resource type="PackedScene" uid="uid://div00t76ta2bj" path="res://BuildingBlocks/Exit.tscn" id="4_d0tk7"]
+[ext_resource type="Script" path="res://Script/PressurePlate.gd" id="6_m230b"]
 [ext_resource type="PackedScene" uid="uid://dl36yuxx8275c" path="res://BuildingBlocks/BlockHazard.tscn" id="6_wwyoo"]
 [ext_resource type="Texture2D" uid="uid://b1xpm0xiosooh" path="res://Assets/Star.png" id="7_rpy4e"]
+[ext_resource type="PackedScene" uid="uid://do1f0kh4kusdc" path="res://BuildingBlocks/Block.tscn" id="8_hlx60"]
 
 [sub_resource type="Gradient" id="Gradient_3pqe3"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -17,9 +19,26 @@ gradient = SubResource("Gradient_3pqe3")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8audw"]
 size = Vector2(7, 152)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8qij"]
+size = Vector2(33, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cax7"]
+size = Vector2(33, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtoh"]
+size = Vector2(33, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krclx"]
+size = Vector2(33, 33)
+
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_jeknh")
 target_level = ExtResource("2_psoj0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.733333, 0.635294, 0.647059)
 
 [node name="Players" parent="." instance=ExtResource("2_d4ijc")]
 position = Vector2(187, 211)
@@ -28,26 +47,115 @@ position = Vector2(187, 211)
 position = Vector2(188, 501)
 
 [node name="Exit" parent="." instance=ExtResource("4_d0tk7")]
-position = Vector2(1144, 490)
+position = Vector2(1145, 490)
 rotation = 6.28098
 
 [node name="Exit2" parent="." instance=ExtResource("4_d0tk7")]
-position = Vector2(1140, 79)
+position = Vector2(1145, 79)
 rotation = 6.28319
 
-[node name="Obstacle" type="StaticBody2D" parent="."]
-position = Vector2(337, 169)
-scale = Vector2(2, 2)
+[node name="Door1" type="StaticBody2D" parent="."]
+position = Vector2(337, 145)
+scale = Vector2(2, 2.52)
+script = ExtResource("6_m230b")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
+[node name="Sprite2D" type="Sprite2D" parent="Door1"]
 scale = Vector2(0.109375, 2.35938)
 texture = SubResource("GradientTexture2D_81hh6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1"]
 shape = SubResource("RectangleShape2D_8audw")
 
+[node name="PlateDoor1" type="Area2D" parent="Door1"]
+position = Vector2(-54, 184.127)
+scale = Vector2(0.5, 0.396825)
+
+[node name="Sprite2D" type="Sprite2D" parent="Door1/PlateDoor1"]
+texture_filter = 1
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("7_rpy4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/PlateDoor1"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_r8qij")
+
+[node name="Door2" type="StaticBody2D" parent="."]
+position = Vector2(538, 494)
+scale = Vector2(2, 2.08094)
+script = ExtResource("6_m230b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door2"]
+scale = Vector2(0.109375, 2.35938)
+texture = SubResource("GradientTexture2D_81hh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+shape = SubResource("RectangleShape2D_8audw")
+
+[node name="PlateDoor2" type="Area2D" parent="Door2"]
+position = Vector2(16.5, -173.96)
+scale = Vector2(0.5, 0.480552)
+
+[node name="Sprite2D" type="Sprite2D" parent="Door2/PlateDoor2"]
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("7_rpy4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/PlateDoor2"]
+texture_filter = 1
+position = Vector2(0.5, -0.500031)
+shape = SubResource("RectangleShape2D_3cax7")
+
+[node name="FinalDoor1" type="StaticBody2D" parent="."]
+position = Vector2(952, 160)
+scale = Vector2(2, 2.2)
+script = ExtResource("6_m230b")
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalDoor1"]
+scale = Vector2(0.109375, 2.35938)
+texture = SubResource("GradientTexture2D_81hh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalDoor1"]
+shape = SubResource("RectangleShape2D_8audw")
+
+[node name="PlateFinal1" type="Area2D" parent="FinalDoor1"]
+position = Vector2(-54.5, 195.909)
+scale = Vector2(0.5, 0.454546)
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalDoor1/PlateFinal1"]
+texture_filter = 1
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("7_rpy4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalDoor1/PlateFinal1"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_4gtoh")
+
+[node name="FinalDoor2" type="StaticBody2D" parent="."]
+position = Vector2(952, 493)
+scale = Vector2(2, 2.12)
+script = ExtResource("6_m230b")
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalDoor2"]
+scale = Vector2(0.109375, 2.35938)
+texture = SubResource("GradientTexture2D_81hh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalDoor2"]
+shape = SubResource("RectangleShape2D_8audw")
+
+[node name="PlateFinal2" type="Area2D" parent="FinalDoor2"]
+position = Vector2(-41.5, -164.151)
+scale = Vector2(0.5, 0.471698)
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalDoor2/PlateFinal2"]
+texture_filter = 1
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("7_rpy4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalDoor2/PlateFinal2"]
+position = Vector2(0.5, -0.500031)
+shape = SubResource("RectangleShape2D_krclx")
+
 [node name="Obstacle3" type="StaticBody2D" parent="."]
-position = Vector2(669, 119)
+position = Vector2(669, 112)
 scale = Vector2(2, 1.495)
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacle3"]
@@ -57,43 +165,10 @@ texture = SubResource("GradientTexture2D_81hh6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3"]
 shape = SubResource("RectangleShape2D_8audw")
 
-[node name="Obstacle2" type="StaticBody2D" parent="."]
-position = Vector2(538, 494)
-scale = Vector2(2, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle2"]
-scale = Vector2(0.109375, 2.35938)
-texture = SubResource("GradientTexture2D_81hh6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2"]
-shape = SubResource("RectangleShape2D_8audw")
-
-[node name="Obstacle4" type="StaticBody2D" parent="."]
-position = Vector2(952, 493)
-scale = Vector2(2, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle4"]
-scale = Vector2(0.109375, 2.35938)
-texture = SubResource("GradientTexture2D_81hh6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4"]
-shape = SubResource("RectangleShape2D_8audw")
-
-[node name="Obstacle5" type="StaticBody2D" parent="."]
-position = Vector2(952, 167)
-scale = Vector2(2, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle5"]
-scale = Vector2(0.109375, 2.35938)
-texture = SubResource("GradientTexture2D_81hh6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle5"]
-shape = SubResource("RectangleShape2D_8audw")
-
 [node name="Obstacle6" type="StaticBody2D" parent="."]
 position = Vector2(574, 331)
 rotation = 1.5708
-scale = Vector2(2, 7.635)
+scale = Vector2(2, 8.795)
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacle6"]
 scale = Vector2(0.109375, 2.35938)
@@ -103,7 +178,7 @@ texture = SubResource("GradientTexture2D_81hh6")
 shape = SubResource("RectangleShape2D_8audw")
 
 [node name="BlockHazard" parent="." instance=ExtResource("6_wwyoo")]
-position = Vector2(257, 572.98)
+position = Vector2(255, 573)
 scale = Vector2(2.825, 0.255)
 
 [node name="BlockHazard2" parent="." instance=ExtResource("6_wwyoo")]
@@ -112,7 +187,7 @@ rotation = 1.5708
 scale = Vector2(2, 0.255)
 
 [node name="BlockHazard3" parent="." instance=ExtResource("6_wwyoo")]
-position = Vector2(874, 186)
+position = Vector2(869, 186)
 scale = Vector2(2.825, 0.255)
 
 [node name="BlockHazard4" parent="." instance=ExtResource("6_wwyoo")]
@@ -156,43 +231,29 @@ scale = Vector2(3.01695, 0.12782)
 [node name="BlockHazard4" parent="Cross2" instance=ExtResource("6_wwyoo")]
 position = Vector2(0.360434, 1.74754)
 
-[node name="PressurePlate" type="Area2D" parent="."]
-position = Vector2(229, 609)
+[node name="Block" parent="." instance=ExtResource("8_hlx60")]
+position = Vector2(606, -20)
+scale = Vector2(38.4, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="PressurePlate"]
-scale = Vector2(0.31, 0.31)
-texture = ExtResource("7_rpy4e")
+[node name="Block2" parent="." instance=ExtResource("8_hlx60")]
+position = Vector2(606, 664)
+scale = Vector2(38.4, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlate"]
+[node name="Block3" parent="." instance=ExtResource("8_hlx60")]
+position = Vector2(-20, 320)
+rotation = 1.5708
+scale = Vector2(38.4, 1)
 
-[node name="PressurePlate2" type="Area2D" parent="."]
-position = Vector2(571, 132)
-
-[node name="Sprite2D" type="Sprite2D" parent="PressurePlate2"]
-scale = Vector2(0.31, 0.31)
-texture = ExtResource("7_rpy4e")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlate2"]
-
-[node name="PressurePlate3" type="Area2D" parent="."]
-position = Vector2(843, 591)
-
-[node name="Sprite2D" type="Sprite2D" parent="PressurePlate3"]
-scale = Vector2(0.31, 0.31)
-texture = ExtResource("7_rpy4e")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlate3"]
-
-[node name="PressurePlate4" type="Area2D" parent="."]
-position = Vector2(869, 145)
-
-[node name="Sprite2D" type="Sprite2D" parent="PressurePlate4"]
-scale = Vector2(0.31, 0.31)
-texture = ExtResource("7_rpy4e")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlate4"]
+[node name="Block4" parent="." instance=ExtResource("8_hlx60")]
+position = Vector2(1172, 320)
+rotation = 1.5708
+scale = Vector2(38.4, 1)
 
 [connection signal="append" from="Exit" to="." method="_on_exit_append"]
 [connection signal="erase" from="Exit" to="." method="_on_exit_erase"]
 [connection signal="append" from="Exit2" to="." method="_on_exit_append"]
 [connection signal="erase" from="Exit2" to="." method="_on_exit_erase"]
+[connection signal="area_entered" from="Door1/PlateDoor1" to="Door1" method="_on_plate_door_1_area_entered"]
+[connection signal="area_entered" from="Door2/PlateDoor2" to="Door2" method="_on_plate_door_2_area_entered"]
+[connection signal="area_entered" from="FinalDoor1/PlateFinal1" to="FinalDoor1" method="_on_plate_final_1_area_entered"]
+[connection signal="area_entered" from="FinalDoor2/PlateFinal2" to="FinalDoor2" method="_on_plate_final_2_area_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6ndmwf2ag72y"]
 
-[ext_resource type="Script" uid="uid://ne4cdkxlit12" path="res://Script/Levels.gd" id="1_b7xc3"]
+[ext_resource type="Script" path="res://Script/Levels.gd" id="1_b7xc3"]
 [ext_resource type="PackedScene" uid="uid://bcklhc6fhaq5i" path="res://BuildingBlocks/Player.tscn" id="2_qstam"]
 [ext_resource type="PackedScene" uid="uid://dowgjsg4bjxqv" path="res://Levels/Level4.tscn" id="2_whejl"]
 [ext_resource type="PackedScene" uid="uid://6u3x1g8ooyyb" path="res://BuildingBlocks/PlayerMirror.tscn" id="3_otlnu"]
@@ -18,20 +18,20 @@ offset_left = -16.0
 offset_top = -24.0
 offset_right = 1245.0
 offset_bottom = 672.0
-color = Color(0.365932, 0.226208, 0.107066, 0.646)
+color = Color(1, 0.733944, 0.634615, 0.646)
 
 [node name="Players" parent="." instance=ExtResource("2_qstam")]
-position = Vector2(93, 356)
-
-[node name="PlayerMirror" parent="." instance=ExtResource("3_otlnu")]
 position = Vector2(93, 283)
 
+[node name="PlayerMirror" parent="." instance=ExtResource("3_otlnu")]
+position = Vector2(93, 356)
+
 [node name="Exit" parent="." instance=ExtResource("4_f875q")]
-position = Vector2(1149, 467)
+position = Vector2(1141, 467)
 rotation = -6.28319
 
 [node name="Exit2" parent="." instance=ExtResource("4_f875q")]
-position = Vector2(1149, 174)
+position = Vector2(1141, 174)
 rotation = -6.28319
 
 [node name="BlockHazard2" parent="." instance=ExtResource("6_vybwq")]
@@ -69,22 +69,22 @@ position = Vector2(965, 145)
 scale = Vector2(4, 4)
 
 [node name="FloorBoundary" parent="." instance=ExtResource("8_twi1l")]
-position = Vector2(834, 708)
-scale = Vector2(7, 7)
+position = Vector2(832, 672)
+scale = Vector2(7.32, 7)
 
 [node name="RWallBoundary" parent="." instance=ExtResource("8_twi1l")]
-position = Vector2(1183, 295)
+position = Vector2(1168, 296)
 rotation = 1.5708
-scale = Vector2(5, 5)
+scale = Vector2(5.36, 5)
 
 [node name="CeilingBoundary" parent="." instance=ExtResource("8_twi1l")]
-position = Vector2(548, -39)
-scale = Vector2(8, 8)
+position = Vector2(552, -24)
+scale = Vector2(8.4, 8)
 
 [node name="LWallBoundary" parent="." instance=ExtResource("8_twi1l")]
-position = Vector2(-20, 241)
+position = Vector2(-8, 240)
 rotation = 1.5708
-scale = Vector2(3, 3)
+scale = Vector2(3.48, 3)
 
 [connection signal="append" from="Exit" to="." method="_on_exit_append"]
 [connection signal="erase" from="Exit" to="." method="_on_exit_erase"]

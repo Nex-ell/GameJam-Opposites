@@ -1,28 +1,77 @@
-[gd_scene load_steps=6 format=3 uid="uid://qv0i61mtxab6"]
+[gd_scene load_steps=8 format=3 uid="uid://qv0i61mtxab6"]
 
 [ext_resource type="Script" path="res://Script/Levels.gd" id="1_sbo7h"]
 [ext_resource type="PackedScene" uid="uid://b6ndmwf2ag72y" path="res://Levels/Level3.tscn" id="2_4crv5"]
 [ext_resource type="PackedScene" uid="uid://bcklhc6fhaq5i" path="res://BuildingBlocks/Player.tscn" id="2_cvih3"]
 [ext_resource type="PackedScene" uid="uid://6u3x1g8ooyyb" path="res://BuildingBlocks/PlayerMirror.tscn" id="3_a0cn1"]
 [ext_resource type="PackedScene" uid="uid://div00t76ta2bj" path="res://BuildingBlocks/Exit.tscn" id="4_huxek"]
+[ext_resource type="PackedScene" uid="uid://dl36yuxx8275c" path="res://BuildingBlocks/BlockHazard.tscn" id="6_rnmdr"]
+[ext_resource type="PackedScene" uid="uid://do1f0kh4kusdc" path="res://BuildingBlocks/Block.tscn" id="7_h0ljy"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_sbo7h")
 target_level = ExtResource("2_4crv5")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.733333, 0.635294, 0.647059)
+
 [node name="Players" parent="." instance=ExtResource("2_cvih3")]
-position = Vector2(261, 270)
+position = Vector2(96, 224)
 
 [node name="PlayerMirror" parent="." instance=ExtResource("3_a0cn1")]
-position = Vector2(343, 269)
+position = Vector2(96, 416)
 
 [node name="Exit" parent="." instance=ExtResource("4_huxek")]
-position = Vector2(340, 400)
-rotation = -4.69204
+position = Vector2(608, 637)
+rotation = -4.71239
 
 [node name="Exit2" parent="." instance=ExtResource("4_huxek")]
-position = Vector2(258, 32)
-rotation = -1.57655
+position = Vector2(608, 11)
+rotation = -1.5708
+
+[node name="BlockHazard" parent="." instance=ExtResource("6_rnmdr")]
+position = Vector2(648, 664)
+scale = Vector2(38.44, 1)
+
+[node name="BlockHazard2" parent="." instance=ExtResource("6_rnmdr")]
+position = Vector2(648, -16)
+scale = Vector2(38.44, 1)
+
+[node name="BlockHazard3" parent="." instance=ExtResource("6_rnmdr")]
+position = Vector2(-16, 672)
+rotation = 1.5708
+scale = Vector2(38.44, 1)
+
+[node name="BlockHazard4" parent="." instance=ExtResource("6_rnmdr")]
+position = Vector2(1168, 552)
+rotation = 1.5708
+scale = Vector2(38.44, 1)
+
+[node name="Block" parent="." instance=ExtResource("7_h0ljy")]
+position = Vector2(96, 320)
+scale = Vector2(61.9275, 1)
+
+[node name="BlockHazard6" parent="." instance=ExtResource("6_rnmdr")]
+position = Vector2(608, 139)
+scale = Vector2(4.78541, 0.966266)
+
+[node name="Block2" parent="." instance=ExtResource("7_h0ljy")]
+position = Vector2(684, 607)
+scale = Vector2(1, 3)
+
+[node name="Block3" parent="." instance=ExtResource("7_h0ljy")]
+position = Vector2(532, 33)
+scale = Vector2(1, 4.36)
+
+[node name="Block4" parent="." instance=ExtResource("7_h0ljy")]
+position = Vector2(684, 534)
+scale = Vector2(13.92, 1)
+
+[node name="Block5" parent="." instance=ExtResource("7_h0ljy")]
+position = Vector2(558, 549)
+scale = Vector2(1, 1.48)
 
 [connection signal="append" from="Exit" to="." method="_on_exit_append"]
 [connection signal="erase" from="Exit" to="." method="_on_exit_erase"]

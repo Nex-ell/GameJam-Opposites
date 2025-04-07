@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://div00t76ta2bj"]
+[gd_scene load_steps=5 format=3 uid="uid://div00t76ta2bj"]
 
 [ext_resource type="Script" path="res://Script/exit.gd" id="1_hptay"]
+[ext_resource type="Texture2D" uid="uid://de6j4aa06g5m5" path="res://Assets/ExitDoor.png" id="2_7dwwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggtfw"]
 size = Vector2(13, 36)
@@ -17,18 +18,11 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ggtfw")
 debug_color = Color(0.954546, 0, 0.547867, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = -18.0
-offset_right = 7.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ColorRect" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0.5, 4.76837e-07)
+scale = Vector2(0.8125, 2.25)
+texture = ExtResource("2_7dwwy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

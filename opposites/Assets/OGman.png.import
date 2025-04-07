@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qnpwv0bfdsxc"
-path="res://.godot/imported/Tiny Wizard.png-cd4ec880e3ef8bcdb46c89bedd87d301.ctex"
+uid="uid://cth6ggala6by1"
+path="res://.godot/imported/OGman.png-aae998cb317289d88773ff78e16c8990.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiny Wizard.png"
-dest_files=["res://.godot/imported/Tiny Wizard.png-cd4ec880e3ef8bcdb46c89bedd87d301.ctex"]
+source_file="res://Assets/OGman.png"
+dest_files=["res://.godot/imported/OGman.png-aae998cb317289d88773ff78e16c8990.ctex"]
 
 [params]
 
